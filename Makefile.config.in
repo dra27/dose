@@ -12,14 +12,14 @@ DOSELIBS = _build/doselibs
 BINDIR = @prefix@@bindir@
 # if prefix is /usr/local (default), then we use ocamlfind, 
 # otherwise use build the destdir using the given prefix
-ifeq (@prefix@,/usr/local)
-  ifeq ("@OCAML_OS_TYPE@","Win32")
-    LIBDIR=$(shell ocamlfind printconf destdir | cygpath -f - -m)
-  else
-    LIBDIR = $(shell ocamlfind printconf destdir)
-  endif
+ifeq ("@OCAML_OS_TYPE@","Win32")
+  LIBDIR=$(shell ocamlfind printconf destdir | cygpath -f - -m)
 else
-  LIBDIR = @prefix@@libdir@/ocaml/$(shell ocamlc -version)
+  ifeq (@prefix@,/usr/local)
+    LIBDIR = $(shell ocamlfind printconf destdir)
+  else
+    LIBDIR = @prefix@@libdir@/ocaml/$(shell ocamlc -version)
+  endif
 endif
 
 # if DESTDIR is specified, we ignore the prefix and we use the 
