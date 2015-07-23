@@ -648,6 +648,7 @@ PKG_ZIP
 CONFIG_ZIP
 CPPOFLAGS
 LN
+EXT_LIB
 OCAML_SYSTEM
 EGREP
 GREP
@@ -5316,6 +5317,8 @@ done
 fi
 
 OCAML_SYSTEM="$($OCAMLBESTCC -config | fgrep system | sed -e "s/system: \(.*\)/\1/")"
+
+EXT_LIB="$($OCAMLBESTCC -config | fgrep ext_lib | sed -e "s/ext_lib: \.//")"
 
 
 if test "${OCAML_OS_TYPE}" = "Win32"; then :
