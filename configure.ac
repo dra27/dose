@@ -259,6 +259,8 @@ fi
 
 OCAML_SYSTEM="$($OCAMLBESTCC -config | fgrep system | sed -e "s/system: \(.*\)/\1/")"
 AC_SUBST(OCAML_SYSTEM)
+EXT_LIB="$($OCAMLBESTCC -config | fgrep ext_lib | sed -e "s/ext_lib: \.//")"
+AC_SUBST(EXT_LIB)
 
 AS_IF([test "${OCAML_OS_TYPE}" = "Win32"],[
   AC_MSG_CHECKING([for a workable solution for ln -s])

@@ -162,7 +162,7 @@ DIST_EXCLUDE = cudf tests $(wildcard */tests) experimental
 INSTALL_STUFF_ = META
 INSTALL_STUFF_ += $(wildcard _build/doselibs/*.cma _build/doselibs/*.cmi)
 INSTALL_STUFF_ += $(wildcard _build/doselibs/*.cmxa _build/doselibs/*.cmxs)
-INSTALL_STUFF_ += $(wildcard _build/doselibs/*.a)
+INSTALL_STUFF_ += $(wildcard _build/doselibs/*.$(EXT_LIB))
 INSTALL_STUFF_ += $(wildcard _build/*/*.mli)
 INSTALL_STUFF_ += $(wildcard _build/rpm/*.so)
 
